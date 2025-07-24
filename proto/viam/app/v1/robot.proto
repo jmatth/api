@@ -296,6 +296,8 @@ message RemoteConfig {
 
   // A string with which to prefix all resource names fetched from this remote.
   string prefix = 11;
+
+  string test = 12;
 }
 
 // RemoteAuth specifies how to authenticate against a remote. If no credentials are
