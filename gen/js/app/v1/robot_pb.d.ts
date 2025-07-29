@@ -1073,6 +1073,9 @@ export class RemoteConfig extends jspb.Message {
   getPrefix(): string;
   setPrefix(value: string): void;
 
+  getTest(): string;
+  setTest(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): RemoteConfig.AsObject;
   static toObject(includeInstance: boolean, msg: RemoteConfig): RemoteConfig.AsObject;
@@ -1096,6 +1099,7 @@ export namespace RemoteConfig {
     serviceConfigsList: Array<ResourceLevelServiceConfig.AsObject>,
     secret: string,
     prefix: string,
+    test: string,
   }
 }
 
