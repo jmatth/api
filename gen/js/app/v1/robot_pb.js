@@ -8434,7 +8434,8 @@ proto.viam.app.v1.RemoteConfig.toObject = function(includeInstance, msg) {
     serviceConfigsList: jspb.Message.toObjectList(msg.getServiceConfigsList(),
     proto.viam.app.v1.ResourceLevelServiceConfig.toObject, includeInstance),
     secret: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    prefix: jspb.Message.getFieldWithDefault(msg, 11, "")
+    prefix: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    test: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -8519,6 +8520,10 @@ proto.viam.app.v1.RemoteConfig.deserializeBinaryFromReader = function(msg, reade
     case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setPrefix(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTest(value);
       break;
     default:
       reader.skipField();
@@ -8628,6 +8633,13 @@ proto.viam.app.v1.RemoteConfig.serializeBinaryToWriter = function(message, write
   if (f.length > 0) {
     writer.writeString(
       11,
+      f
+    );
+  }
+  f = message.getTest();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -8925,6 +8937,24 @@ proto.viam.app.v1.RemoteConfig.prototype.getPrefix = function() {
  */
 proto.viam.app.v1.RemoteConfig.prototype.setPrefix = function(value) {
   return jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional string test = 12;
+ * @return {string}
+ */
+proto.viam.app.v1.RemoteConfig.prototype.getTest = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.viam.app.v1.RemoteConfig} returns this
+ */
+proto.viam.app.v1.RemoteConfig.prototype.setTest = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 
