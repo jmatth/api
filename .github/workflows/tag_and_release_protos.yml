@@ -17,7 +17,6 @@ on:
 
 jobs:
   bump-tag:
-    if: github.repository_owner == 'viamrobotics'
     runs-on: ubuntu-latest
     container: ghcr.io/viamrobotics/canon:amd64
     outputs:
@@ -34,7 +33,6 @@ jobs:
 
   buf-push:
     needs: bump-tag
-    if: github.repository_owner == 'viamrobotics'
     runs-on: ubuntu-latest
     container: ghcr.io/viamrobotics/canon:amd64
     steps:
@@ -50,7 +48,11 @@ jobs:
       - uses: bufbuild/buf-setup-action@a47c93e0b1648d5651a065437926377d060baa99
         with:
           version: ${{ steps.buf-version.outputs.version }}
+      - name: test buf version
+        run:
+          buf --version
       - uses: AdamMagaluk/buf-push-action@v1
+        if: github.repository_owner == 'viamrobotics'
         with:
           input: proto/viam
           buf_token: ${{ secrets.BUF_TOKEN }}
